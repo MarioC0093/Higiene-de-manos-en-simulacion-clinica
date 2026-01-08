@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: "C:/Users/mario.camacho/OneDrive - UFV/Hospitales CAM/Sureste/Bea Isidoro 202511/20251118 Adherencia Higiene Manos en Centro de Simulación Clínica/99_entregables/"
+
+format:
+  html:
+    self-contained: true
+    toc: true
+    # toc-title: "Índice"
+    toc-location: left
+    toc-width: 200px
+    toc-expand: true
+    page-layout: full
+    editor: visual
+    knitr:
+      opts_chunk:
+        # collapse: false
+        code-fold: false
+        # results: 'hold'
+        # comment: "#>"
+        R.options:
+          width: 110
+        fig.align: 'center'
+    warning: false
+    color-scheme: dark
+    theme:
+      light: default
+      dark: darkly
+    css: styles.css
+
+# Desde el .R no funciona, habría que llevarlo a un .qmd
+navbar:
+  left:
+    - href: 'index.html'
+      text: "Inicio"
+    - href: '../../00_Documentación/20240830 CRD_HM UFV.pdf'
+      text: "Ingesta de datos"
+    - href: '00_main.html'
+      text: "Ingesta de datos"
+    - href: 'scr/00_main.html'
+      text: "Librerías"

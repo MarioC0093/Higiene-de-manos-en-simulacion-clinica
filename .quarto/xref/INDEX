@@ -1,0 +1,23 @@
+{
+  "scr/00_main.R": {
+    "00_main.html": "b5dda571"
+  },
+  "00_main.R": {
+    "00_main.html": "16f5001b"
+  },
+  "index.R": {
+    "index.html": "16ab87c3"
+  },
+  "scr/01_eda.R": {
+    "01_eda.html": "82e1100a"
+  },
+  "scr/02_diseño_experimento.R": {
+    "02_diseño_experimento.html": "64ee9a57"
+  },
+  "scr/02_prevalencia_por_curso.R": {
+    "02_prevalencia_por_curso.html": "cf488abf"
+  },
+  "scr/02_prevalencia_por_escenario.R": {
+    "02_prevalencia_por_escenario.html": "157ea30f"
+  }
+}
