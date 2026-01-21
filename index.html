@@ -4074,7 +4074,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">January 8, 2026</p>
+      <p class="date-modified">January 21, 2026</p>
     </div>
   </div>
     
@@ -4191,48 +4191,8 @@ vertical-align: -.125em;
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Me lo lleva a la carpeta scr pero es la única manera de que me use el yaml</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># invisible(system(&#39;&quot;C:/Program Files/RStudio/resources/app/bin/quarto/bin/quarto.exe&quot; render scr/00_main.R --to html --self-contained&#39;))</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># invisible(system(&#39;&quot;C:/Program Files/RStudio/resources/app/bin/quarto/bin/quarto.exe&quot; render scr/01_eda.R --to html --self-contained&#39;))</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># invisible(system(&#39;&quot;C:/Program Files/RStudio/resources/app/bin/quarto/bin/quarto.exe&quot; render scr/02_prevalencia_por_curso.R --to html --self-contained&#39;))</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># invisible(system(&#39;&quot;C:/Program Files/RStudio/resources/app/bin/quarto/bin/quarto.exe&quot; render scr/02_prevalencia_por_escenario.R --to html --self-contained&#39;))</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  Leer todos los HTML generados</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>output_dir <span class="ot">&lt;-</span> <span class="fu">file.path</span>(<span class="fu">getwd</span>(), <span class="st">&quot;99_entregables/scr&quot;</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># html_files &lt;- file.path(output_dir, paste0(tools::file_path_sans_ext(&quot;.html&quot;)))</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>html_files <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> output_dir, <span class="at">pattern =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.html$&quot;</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 3️⃣ Crear un HTML combinado</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>combined_html <span class="ot">&lt;-</span> <span class="st">&#39;&lt;!DOCTYPE html&gt;</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;html&gt;</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;head&gt;</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;meta charset=&quot;utf-8&quot;&gt;</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;title&gt;Reporte Combinado&lt;/title&gt;</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;style&gt;</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">body { font-family: Arial; margin: 20px; }</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="st">section { margin-bottom: 50px; }</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">nav a { margin-right: 10px; }</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/style&gt;</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/head&gt;</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;body&gt;</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;nav&gt;</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;!-- enlaces a secciones --&gt;</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="st">%s</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/nav&gt;</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="st">%s</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/body&gt;</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="st">&lt;/html&gt;</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 4️⃣ Generar enlaces y secciones</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>links <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;&lt;a href=&quot;#&#39;</span>, tools<span class="sc">::</span><span class="fu">file_path_sans_ext</span>(<span class="fu">basename</span>(html_files)), <span class="st">&#39;&quot;&gt;&#39;</span>, <span class="fu">basename</span>(html_files), <span class="st">&#39;&lt;/a&gt;&#39;</span>, <span class="at">collapse =</span> <span class="st">&quot; | &quot;</span>)</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>sections <span class="ot">&lt;-</span> <span class="fu">sapply</span>(html_files, <span class="cf">function</span>(f) {</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  doc <span class="ot">&lt;-</span> <span class="fu">read_html</span>(f)</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  body_content <span class="ot">&lt;-</span> <span class="fu">xml_find_first</span>(doc, <span class="st">&quot;//body&quot;</span>) <span class="sc">|&gt;</span> <span class="fu">xml_children</span>() <span class="sc">|&gt;</span> <span class="fu">as.character</span>() <span class="sc">|&gt;</span> <span class="fu">paste</span>(<span class="at">collapse =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  section_id <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">file_path_sans_ext</span>(<span class="fu">basename</span>(f))</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sprintf</span>(<span class="st">&#39;&lt;section id=&quot;%s&quot;&gt;</span><span class="sc">\n</span><span class="st">&lt;h2&gt;%s&lt;/h2&gt;</span><span class="sc">\n</span><span class="st">%s</span><span class="sc">\n</span><span class="st">&lt;/section&gt;&#39;</span>, section_id, section_id, body_content)</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">|&gt;</span> <span class="fu">paste</span>(<span class="at">collapse =</span> <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 5️⃣ Guardar HTML combinado</span></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="fu">writeLines</span>(<span class="fu">sprintf</span>(combined_html, links, sections), <span class="st">&quot;99_entregables/Reporte_Combinado.html&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">system</span>(<span class="st">&#39;&quot;C:/Program Files/RStudio/resources/app/bin/quarto/bin/quarto.exe&quot; render scr/02_prevalencia_por_curso.R --to html --self-contained&#39;</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># invisible(system(&#39;&quot;C:/Program Files/RStudio/resources/app/bin/quarto/bin/quarto.exe&quot; render scr/02_prevalencia_por_escenario.R --to html --self-contained&#39;))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
