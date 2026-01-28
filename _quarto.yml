@@ -8,8 +8,9 @@ format:
     toc: true
     # toc-title: "Índice"
     toc-location: left
-    toc-width: 200px
+    toc-width: 100px
     toc-expand: true
+    # include-in-header: toc-toggle.html
     page-layout: full
     editor: visual
     knitr:
@@ -22,7 +23,7 @@ format:
           width: 110
         fig.align: 'center'
     warning: false
-    color-scheme: dark
+    # color-scheme: dark
     theme:
       light: default
       dark: darkly

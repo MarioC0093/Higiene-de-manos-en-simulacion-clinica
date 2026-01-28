@@ -19,5 +19,8 @@
   },
   "scr/02_prevalencia_por_escenario.R": {
     "02_prevalencia_por_escenario.html": "157ea30f"
+  },
+  "scr/02_estudio_adherencia.R": {
+    "02_estudio_adherencia.html": "7e769af7"
   }
 }
